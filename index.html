@@ -1,1 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>GrantPath International | Funding Assessment</title>
+
+  <meta
+    name="description"
+    content="GrantPath International helps individuals and businesses assess potential funding and grant opportunities."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #1d1d1d;
+      background: #ffffff;
+    }
+
+    header {
+      background: #111111;
+      color: white;
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      opacity: .75;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #111111, #2a2a2a);
+      color: white;
+      padding: 100px 7%;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 70px);
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 35px;
+      font-size: 19px;
+      color: #dddddd;
+    }
+
+    .button {
+      display: inline-block;
+      background: #c9a227;
+      color: #111111;
+      padding: 15px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      opacity: .9;
+    }
+
+    section {
+      padding: 75px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: #666666;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .card {
+      padding: 30px;
+      border: 1px solid #eeeeee;
+      border-radius: 10px;
+      background: #ffffff;
+      box-shadow: 0 8px 25px rgba(0,0,0,.05);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 21px;
+    }
+
+    .card p {
+      color: #666666;
+    }
+
+    .assessment {
+      background: #f6f6f6;
+      text-align: center;
+    }
+
+    .assessment p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      color: #555555;
+    }
+
+    .steps {
+      max-width: 900px;
+      margin: auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    .step {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 25px;
+      background: #f8f8f8;
+      border-radius: 8px;
+    }
+
+    .number {
+      background: #111111;
+      color: #c9a227;
+      min-width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .contact {
+      background: #111111;
+      color: white;
+      text-align: center;
+    }
+
+    .contact p {
+      margin: 8px 0;
+      color: #dddddd;
+    }
+
+    .contact a {
+      color: #c9a227;
+      text-decoration: none;
+    }
+
+    footer {
+      background: #080808;
+      color: #aaaaaa;
+      text-align: center;
+      padding: 25px 7%;
+      font-size: 13px;
+    }
+
+    @media (max-width: 750px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      .hero {
+        padding: 75px 6%;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 55px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">GrantPath International</div>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#assessment">Assessment</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <h1>Find Your Funding Path</h1>
+
+      <p>
+        GrantPath International helps individuals and businesses assess
+        potential grant and funding opportunities based on their needs
+        and circumstances.
+      </p>
+
+      <a
+        class="button"
+        href="https://tally.so/r/440Vdb"
+        target="_blank"
+        rel="noopener"
+      >
+        Start Your Funding Assessment
+      </a>
+    </section>
+
+
+    <section id="about">
+      <div class="section-title">
+        <h2>About GrantPath International</h2>
+
+        <p>
+          We help applicants better understand potential funding
+          opportunities and identify pathways that may be relevant
+          to their goals.
+        </p>
+      </div>
+    </section>
+
+
+    <section id="services">
+      <div class="section-title">
+        <h2>Our Services</h2>
+
+        <p>
+          Our assessment process is designed to help you organize
+          your information and understand potential funding options.
+        </p>
+      </div>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>Funding Assessment</h3>
+          <p>
+            Complete an initial assessment so we can understand
+            your situation and funding objectives.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Opportunity Review</h3>
+          <p>
+            We review the information you provide and identify
+            potential funding opportunities that may be relevant.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Application Guidance</h3>
+          <p>
+            Receive guidance on preparing information and understanding
+            the next steps in a potential funding application.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section id="assessment" class="assessment">
+
+      <div class="section-title">
+        <h2>Start Your Funding Assessment</h2>
+
+        <p>
+          Take the first step by completing our online assessment.
+          Your information will help us understand your funding needs.
+        </p>
+      </div>
+
+      <a
+        class="button"
+        href="https://tally.so/r/440Vdb"
+        target="_blank"
+        rel="noopener"
+      >
+        Complete Assessment
+      </a>
+
+    </section>
+
+
+    <section>
+
+      <div class="section-title">
+        <h2>How It Works</h2>
+      </div>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="number">1</div>
+          <div>
+            <h3>Complete the assessment</h3>
+            <p>
+              Provide basic information about yourself, your organization,
+              and your funding goals.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="number">2</div>
+          <div>
+            <h3>Information review</h3>
+            <p>
+              Your submitted information can be reviewed to determine
+              which potential funding pathways may be relevant.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="number">3</div>
+          <div>
+            <h3>Next steps</h3>
+            <p>
+              Receive information about potential next steps based
+              on your assessment.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section id="contact" class="contact">
+
+      <div class="section-title">
+        <h2>Contact Us</h2>
+
+        <p>
+          Have questions about your funding assessment or need assistance?
+          We're here to help.
+        </p>
+      </div>
+
+      <p>
+        Email:
+        <a href="mailto:GrantPathInternational@gmail.com">
+          GrantPathInternational@gmail.com
+        </a>
+      </p>
+
+      <p>
+        Phone:
+        <a href="tel:+13524745676">
+          +1 352-474-5676
+        </a>
+      </p>
+
+      <p>
+        Business Hours: Monday–Friday, 9:00 AM–5:00 PM
+      </p>
+
+      <p>
+        Telegram:
+        <a href="https://t.me/" target="_blank" rel="noopener">
+          Contact us on Telegram
+        </a>
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    © 2026 GrantPath International. All rights reserved.
+  </footer>
+
+</body>
+</html>
