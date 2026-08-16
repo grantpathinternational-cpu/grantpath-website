@@ -1,428 +1,593 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>GrantPath International | Funding Assessment</title>
+<title>GrantPath International | Funding Assessment</title>
 
-  <meta
-    name="description"
-    content="GrantPath International helps individuals and businesses assess potential funding and grant opportunities."
-  >
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #171717;
+  line-height: 1.6;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      color: #1d1d1d;
-      background: #ffffff;
-    }
+header {
+  background: #111;
+  color: white;
+  padding: 22px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    header {
-      background: #111111;
-      color: white;
-      padding: 20px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
 
-    .logo {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: .5px;
-    }
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 22px;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-      font-size: 14px;
-    }
+.hero {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 80px 7%;
+}
 
-    nav a:hover {
-      opacity: .75;
-    }
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 18px;
+}
 
-    .hero {
-      background: linear-gradient(135deg, #111111, #2a2a2a);
-      color: white;
-      padding: 100px 7%;
-      text-align: center;
-    }
+.hero p {
+  max-width: 700px;
+  margin: auto;
+  color: #ddd;
+}
 
-    .hero h1 {
-      font-size: clamp(40px, 7vw, 70px);
-      margin-bottom: 20px;
-    }
+.assessment {
+  max-width: 850px;
+  margin: 50px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 35px rgba(0,0,0,.08);
+}
 
-    .hero p {
-      max-width: 720px;
-      margin: 0 auto 35px;
-      font-size: 19px;
-      color: #dddddd;
-    }
+.progress {
+  margin-bottom: 30px;
+}
 
-    .button {
-      display: inline-block;
-      background: #c9a227;
-      color: #111111;
-      padding: 15px 28px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: .2s;
-    }
+.progress-text {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-    .button:hover {
-      transform: translateY(-2px);
-      opacity: .9;
-    }
+.progress-bar {
+  height: 8px;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
 
-    section {
-      padding: 75px 7%;
-    }
+.progress-fill {
+  height: 100%;
+  width: 20%;
+  background: #c5a047;
+  transition: width .3s;
+}
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
+.step {
+  display: none;
+}
 
-    .section-title h2 {
-      font-size: 36px;
-      margin-bottom: 12px;
-    }
+.step.active {
+  display: block;
+}
 
-    .section-title p {
-      color: #666666;
-      max-width: 700px;
-      margin: auto;
-    }
+.step h2 {
+  margin-bottom: 10px;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-      max-width: 1100px;
-      margin: auto;
-    }
+.step-description {
+  color: #666;
+  margin-bottom: 25px;
+}
 
-    .card {
-      padding: 30px;
-      border: 1px solid #eeeeee;
-      border-radius: 10px;
-      background: #ffffff;
-      box-shadow: 0 8px 25px rgba(0,0,0,.05);
-    }
+label {
+  display: block;
+  font-weight: bold;
+  margin: 18px 0 7px;
+}
 
-    .card h3 {
-      margin-bottom: 12px;
-      font-size: 21px;
-    }
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
 
-    .card p {
-      color: #666666;
-    }
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
 
-    .assessment {
-      background: #f6f6f6;
-      text-align: center;
-    }
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
 
-    .assessment p {
-      max-width: 700px;
-      margin: 0 auto 30px;
-      color: #555555;
-    }
+button {
+  border: none;
+  padding: 13px 25px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+}
 
-    .steps {
-      max-width: 900px;
-      margin: auto;
-      display: grid;
-      gap: 20px;
-    }
+.next {
+  background: #111;
+  color: white;
+}
 
-    .step {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      padding: 25px;
-      background: #f8f8f8;
-      border-radius: 8px;
-    }
+.back {
+  background: #ddd;
+  color: #111;
+}
 
-    .number {
-      background: #111111;
-      color: #c9a227;
-      min-width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-    }
+.submit {
+  background: #c5a047;
+  color: #111;
+}
 
-    .contact {
-      background: #111111;
-      color: white;
-      text-align: center;
-    }
+.review-box {
+  background: #f7f7f7;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
 
-    .contact p {
-      margin: 8px 0;
-      color: #dddddd;
-    }
+footer {
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 25px;
+}
 
-    .contact a {
-      color: #c9a227;
-      text-decoration: none;
-    }
+@media(max-width:700px) {
+  header {
+    flex-direction: column;
+    gap: 12px;
+  }
 
-    footer {
-      background: #080808;
-      color: #aaaaaa;
-      text-align: center;
-      padding: 25px 7%;
-      font-size: 13px;
-    }
+  nav a {
+    margin: 0 7px;
+    font-size: 14px;
+  }
 
-    @media (max-width: 750px) {
-      header {
-        flex-direction: column;
-        gap: 15px;
-      }
+  .hero h1 {
+    font-size: 36px;
+  }
 
-      nav a {
-        margin: 0 8px;
-      }
-
-      .hero {
-        padding: 75px 6%;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 55px 6%;
-      }
-    }
-  </style>
+  .assessment {
+    margin: 25px 15px;
+    padding: 25px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">GrantPath International</div>
+<header>
+  <div class="logo">GrantPath International</div>
 
-    <nav>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#assessment">Assessment</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <nav>
+    <a href="#assessment">Assessment</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <main>
+<section class="hero">
+  <h1>Funding Assessment</h1>
 
-    <section class="hero">
-      <h1>Find Your Funding Path</h1>
+  <p>
+    Complete our five-step assessment to provide information
+    about your funding needs, project, or business.
+  </p>
+</section>
 
-      <p>
-        GrantPath International helps individuals and businesses assess
-        potential grant and funding opportunities based on their needs
-        and circumstances.
+<section class="assessment" id="assessment">
+
+  <div class="progress">
+    <div class="progress-text" id="progressText">
+      Step 1 of 5
+    </div>
+
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+
+  <form id="assessmentForm">
+
+    <!-- STEP 1 -->
+
+    <div class="step active">
+
+      <h2>Step 1 — About You</h2>
+
+      <p class="step-description">
+        Tell us a little about yourself.
       </p>
 
-      <a
-        class="button"
-        href="https://tally.so/r/440Vdb"
-        target="_blank"
-        rel="noopener"
+      <label>Full Name</label>
+      <input type="text" name="full_name" required>
+
+      <label>Email Address</label>
+      <input type="email" name="email" required>
+
+      <label>Phone Number</label>
+      <input type="tel" name="phone" required>
+
+      <label>Country / State</label>
+      <input type="text" name="location" required>
+
+      <label>What best describes you?</label>
+      <select name="applicant_type" required>
+        <option value="">Select one</option>
+        <option>Individual</option>
+        <option>Business</option>
+        <option>Nonprofit / Organization</option>
+        <option>Community Project</option>
+      </select>
+
+    </div>
+
+
+    <!-- STEP 2 -->
+
+    <div class="step">
+
+      <h2>Step 2 — Funding Request</h2>
+
+      <p class="step-description">
+        Tell us about the funding you are seeking.
+      </p>
+
+      <label>What type of funding are you seeking?</label>
+      <select name="funding_type" required>
+        <option value="">Select one</option>
+        <option>Grant</option>
+        <option>Business Funding</option>
+        <option>Project Funding</option>
+        <option>Community Funding</option>
+        <option>Other</option>
+      </select>
+
+      <label>How much funding are you seeking?</label>
+      <input type="text" name="funding_amount" required>
+
+      <label>What will the funding be used for?</label>
+      <textarea name="funding_purpose" required></textarea>
+
+      <label>When do you need the funding?</label>
+      <input type="text" name="funding_timeline" required>
+
+    </div>
+
+
+    <!-- STEP 3 -->
+
+    <div class="step">
+
+      <h2>Step 3 — Project / Business</h2>
+
+      <p class="step-description">
+        Tell us more about your project, business, or organization.
+      </p>
+
+      <label>Business / Organization / Project Name</label>
+      <input type="text" name="project_name">
+
+      <label>Describe your project, business, or idea</label>
+      <textarea name="project_description" required></textarea>
+
+      <label>What is the main goal of the project?</label>
+      <textarea name="project_goal" required></textarea>
+
+    </div>
+
+
+    <!-- STEP 4 -->
+
+    <div class="step">
+
+      <h2>Step 4 — Funding History</h2>
+
+      <p class="step-description">
+        Tell us about any previous funding experience.
+      </p>
+
+      <label>Have you previously applied for a grant or funding?</label>
+
+      <select name="previous_application" required>
+        <option value="">Select one</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+
+      <label>If yes, briefly describe your previous experience</label>
+
+      <textarea name="funding_history"></textarea>
+
+      <label>Have you previously received grant or funding support?</label>
+
+      <select name="previous_funding" required>
+        <option value="">Select one</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+
+    </div>
+
+
+    <!-- STEP 5 -->
+
+    <div class="step">
+
+      <h2>Step 5 — Review & Submit</h2>
+
+      <p class="step-description">
+        Review your information before submitting your assessment.
+      </p>
+
+      <div class="review-box" id="reviewBox"></div>
+
+      <label>
+        <input
+          type="checkbox"
+          name="consent"
+          required
+          style="width:auto;margin-right:8px;"
+        >
+        I confirm that the information I provided is accurate and
+        I agree to be contacted regarding my assessment.
+      </label>
+
+    </div>
+
+
+    <div class="buttons">
+
+      <button
+        type="button"
+        class="back"
+        id="backButton"
+        onclick="previousStep()"
+        style="display:none;"
       >
-        Start Your Funding Assessment
-      </a>
-    </section>
+        Back
+      </button>
 
-
-    <section id="about">
-      <div class="section-title">
-        <h2>About GrantPath International</h2>
-
-        <p>
-          We help applicants better understand potential funding
-          opportunities and identify pathways that may be relevant
-          to their goals.
-        </p>
-      </div>
-    </section>
-
-
-    <section id="services">
-      <div class="section-title">
-        <h2>Our Services</h2>
-
-        <p>
-          Our assessment process is designed to help you organize
-          your information and understand potential funding options.
-        </p>
-      </div>
-
-      <div class="cards">
-
-        <div class="card">
-          <h3>Funding Assessment</h3>
-          <p>
-            Complete an initial assessment so we can understand
-            your situation and funding objectives.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Opportunity Review</h3>
-          <p>
-            We review the information you provide and identify
-            potential funding opportunities that may be relevant.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Application Guidance</h3>
-          <p>
-            Receive guidance on preparing information and understanding
-            the next steps in a potential funding application.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-
-    <section id="assessment" class="assessment">
-
-      <div class="section-title">
-        <h2>Start Your Funding Assessment</h2>
-
-        <p>
-          Take the first step by completing our online assessment.
-          Your information will help us understand your funding needs.
-        </p>
-      </div>
-
-      <a
-        class="button"
-        href="https://tally.so/r/440Vdb"
-        target="_blank"
-        rel="noopener"
+      <button
+        type="button"
+        class="next"
+        id="nextButton"
+        onclick="nextStep()"
       >
-        Complete Assessment
-      </a>
+        Continue
+      </button>
 
-    </section>
+      <button
+        type="submit"
+        class="submit"
+        id="submitButton"
+        style="display:none;"
+      >
+        Submit Assessment
+      </button>
 
+    </div>
 
-    <section>
+  </form>
 
-      <div class="section-title">
-        <h2>How It Works</h2>
-      </div>
+</section>
 
-      <div class="steps">
+<section id="contact" style="text-align:center;padding:60px 7%;">
 
-        <div class="step">
-          <div class="number">1</div>
-          <div>
-            <h3>Complete the assessment</h3>
-            <p>
-              Provide basic information about yourself, your organization,
-              and your funding goals.
-            </p>
-          </div>
-        </div>
+  <h2>Contact GrantPath International</h2>
 
-        <div class="step">
-          <div class="number">2</div>
-          <div>
-            <h3>Information review</h3>
-            <p>
-              Your submitted information can be reviewed to determine
-              which potential funding pathways may be relevant.
-            </p>
-          </div>
-        </div>
+  <p style="margin-top:15px;">
+    Email:
+    <a href="mailto:GrantPathInternational@gmail.com">
+      GrantPathInternational@gmail.com
+    </a>
+  </p>
 
-        <div class="step">
-          <div class="number">3</div>
-          <div>
-            <h3>Next steps</h3>
-            <p>
-              Receive information about potential next steps based
-              on your assessment.
-            </p>
-          </div>
-        </div>
+  <p>
+    Phone:
+    <a href="tel:+13524745676">
+      +1 352-474-5676
+    </a>
+  </p>
 
-      </div>
+  <p>
+    Monday–Friday, 9:00 AM–5:00 PM
+  </p>
 
-    </section>
+</section>
+
+<footer>
+  © 2026 GrantPath International. All rights reserved.
+</footer>
 
 
-    <section id="contact" class="contact">
+<script>
 
-      <div class="section-title">
-        <h2>Contact Us</h2>
+let currentStep = 0;
 
-        <p>
-          Have questions about your funding assessment or need assistance?
-          We're here to help.
-        </p>
-      </div>
+const steps = document.querySelectorAll(".step");
 
-      <p>
-        Email:
-        <a href="mailto:GrantPathInternational@gmail.com">
-          GrantPathInternational@gmail.com
-        </a>
-      </p>
+const progressFill =
+  document.getElementById("progressFill");
 
-      <p>
-        Phone:
-        <a href="tel:+13524745676">
-          +1 352-474-5676
-        </a>
-      </p>
+const progressText =
+  document.getElementById("progressText");
 
-      <p>
-        Business Hours: Monday–Friday, 9:00 AM–5:00 PM
-      </p>
+const backButton =
+  document.getElementById("backButton");
 
-      <p>
-        Telegram:
-        <a href="https://t.me/" target="_blank" rel="noopener">
-          Contact us on Telegram
-        </a>
-      </p>
+const nextButton =
+  document.getElementById("nextButton");
 
-    </section>
-
-  </main>
+const submitButton =
+  document.getElementById("submitButton");
 
 
-  <footer>
-    © 2026 GrantPath International. All rights reserved.
-  </footer>
+function showStep(index) {
+
+  steps.forEach((step, i) => {
+    step.classList.toggle("active", i === index);
+  });
+
+  progressText.textContent =
+    "Step " + (index + 1) + " of 5";
+
+  progressFill.style.width =
+    ((index + 1) / 5 * 100) + "%";
+
+  backButton.style.display =
+    index === 0 ? "none" : "block";
+
+  nextButton.style.display =
+    index === steps.length - 1 ? "none" : "block";
+
+  submitButton.style.display =
+    index === steps.length - 1 ? "block" : "none";
+
+  if (index === steps.length - 1) {
+    createReview();
+  }
+}
+
+
+function validateCurrentStep() {
+
+  const fields =
+    steps[currentStep].querySelectorAll(
+      "input, select, textarea"
+    );
+
+  for (const field of fields) {
+
+    if (!field.checkValidity()) {
+
+      field.reportValidity();
+
+      return false;
+    }
+  }
+
+  return true;
+}
+
+
+function nextStep() {
+
+  if (!validateCurrentStep()) {
+    return;
+  }
+
+  if (currentStep < steps.length - 1) {
+    currentStep++;
+    showStep(currentStep);
+  }
+}
+
+
+function previousStep() {
+
+  if (currentStep > 0) {
+    currentStep--;
+    showStep(currentStep);
+  }
+}
+
+
+function createReview() {
+
+  const form =
+    document.getElementById("assessmentForm");
+
+  const data =
+    new FormData(form);
+
+  let html = "";
+
+  for (const [key, value] of data.entries()) {
+
+    if (key === "consent") {
+      continue;
+    }
+
+    if (value) {
+
+      html +=
+        "<p><strong>" +
+        key.replaceAll("_", " ") +
+        ":</strong> " +
+        value +
+        "</p>";
+    }
+  }
+
+  document.getElementById("reviewBox").innerHTML =
+    html;
+}
+
+
+document
+  .getElementById("assessmentForm")
+  .addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    /*
+      The form is ready, but an email/form
+      submission service still needs to be
+      connected here.
+    */
+
+    alert(
+      "Your assessment is ready to be submitted. " +
+      "The email connection needs to be configured before submissions can be received."
+    );
+
+  });
+
+
+showStep(0);
+
+</script>
 
 </body>
 </html>
